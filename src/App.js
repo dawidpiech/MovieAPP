@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PopularMovie from "./pages/PopularMovie";
+import PopularPeople from "./pages/PopularPeople";
 import ErrorPage from "./pages/ErrorPage";
+import Navigation from "./components/Navigation/Navigation";
 
 function App() {
   return (
@@ -8,6 +10,8 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<PopularMovie />}></Route>
+        <Route path="/movies" element={<PopularMovie />}></Route>
+        <Route path="/people" element={<PopularPeople />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </Router>
