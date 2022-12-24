@@ -56,7 +56,6 @@ export const Menu = styled.div`
 export const LinkLogo = styled(NavLink)`
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
-
   display: flex;
   align-items: center;
   transition: opacity 0.5s;
@@ -76,6 +75,7 @@ export const LinkLogo = styled(NavLink)`
 
 export const Link = styled(LinkLogo)`
   padding: 12px 24px;
+  font-weight: bold;
   &.active {
     border: 1px solid ${({ theme }) => theme.colors.white};
     border-radius: 24px;

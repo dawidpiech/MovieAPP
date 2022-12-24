@@ -4,6 +4,8 @@ export const theme = {
     white: "#FFFFFF",
     red: "#ead",
     gray: "#7f7f7f",
+    lightGray: "#E4E6F0",
+    mint: "#c0ffee",
   },
   breakpoints: {
     mobile: "768px",
