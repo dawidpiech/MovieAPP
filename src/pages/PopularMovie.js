@@ -26,12 +26,14 @@ const PopularMoviePage = () => {
   const genres = useSelector(selectGenres);
   const loading = useSelector(selectLoadingPopularMovies);
   const [params] = useSearchParams();
-  const page = parseInt(params.get("page")) ? parseInt(params.get("page")) : 1;
+  const page = parseInt(params.get("page"))
+    ? parseInt(params.get("page"))
+    : parseInt(1);
 
   useEffect(() => {
     dispatch(fetchPopularMovies(page));
     dispatch(fetchGenres());
-  }, [page, params]);
+  }, [page, dispatch]);
 
   let render = "";
 

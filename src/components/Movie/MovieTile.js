@@ -32,7 +32,6 @@ const Link = styled(NavLink)`
 `;
 
 const MovieTile = ({
-  key,
   id,
   poster,
   title,
@@ -44,7 +43,7 @@ const MovieTile = ({
 }) => {
   const date = new Date(release);
   return (
-    <MovieTileWrapper key={key}>
+    <MovieTileWrapper key={id}>
       <Link to={"/movie/" + id}>
         <Image
           src={
