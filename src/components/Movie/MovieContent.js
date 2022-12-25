@@ -11,7 +11,6 @@ const MovieContent = ({ movies, genres }) => {
   return (
     <MovieWrapper>
       {movies &&
-        movies &&
         movies.map((movie) => (
           <MovieTile
             key={movie.id}

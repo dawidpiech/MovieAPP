@@ -47,25 +47,25 @@ const Page = styled.p`
   }
 `;
 
-const Pagination = ({ maxPage, page }) => {
+const Pagination = ({ maxPage, page, type }) => {
   const navigate = useNavigate();
 
   const changePage = (e) => {
     switch (e) {
       case "first":
-        navigate("/movies?page=1");
+        navigate(`/${type}?page=1`);
         break;
       case "previous":
-        navigate("/movies?page=" + --page);
+        navigate(`/${type}?page=` + --page);
         break;
       case "next":
-        navigate("/movies?page=" + ++page);
+        navigate(`/${type}?page=` + ++page);
         break;
       case "last":
-        navigate("/movies?page=" + maxPage);
+        navigate(`/${type}?page=` + maxPage);
         break;
       default:
-        navigate("/movies?page=1");
+        navigate(`/${type}?page=1`);
     }
   };
   return (

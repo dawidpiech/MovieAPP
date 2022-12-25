@@ -10,20 +10,6 @@ const moviesSlice = createSlice({
     loading: "",
   },
   reducers: {
-    fetchMovies: (state) => {
-      state.loading = "loading";
-    },
-    setMovies: (state, { payload: movies }) => {
-      state.movies = movies;
-      state.loading = "success";
-    },
-    fetchErrorMovies: (state) => {
-      state.loading = "error";
-    },
-    fetchPeople: () => {},
-    setPeople: (state, { payload: people }) => {
-      state.people = people;
-    },
     fetchPopularMovies: (state) => {
       state.loading = "loading";
     },
@@ -34,35 +20,25 @@ const moviesSlice = createSlice({
       state.popularMovies = popularMovies;
       state.loading = "success";
     },
-    fetchGenres: () => {},
+    fetchGenres: (state) => {
+      state.loading = "loading";
+    },
     setGenres: (state, { payload: genres }) => {
       state.genres = genres;
     },
   },
 });
 
-export const selectMoviesState = (state) => state.movies;
-export const selectPeopleState = (state) => state.people;
 export const selectPopularMoviesState = (state) => state.popularMovies;
 export const selectGenresState = (state) => state.genres;
 
-export const selectMovies = (state) => selectMoviesState(state).movies;
-export const selectPeople = (state) => selectPeopleState(state).people;
 export const selectPopularMovies = (state) =>
   selectPopularMoviesState(state).popularMovies;
-export const selectPopularMoviesTotalPages = (state) =>
-  selectPopularMovies(state).total_pages;
 export const selectGenres = (state) => selectGenresState(state).genres;
 export const selectLoadingPopularMovies = (state) =>
   selectPopularMoviesState(state).loading;
-export const selectLoadingMovie = (state) => selectMoviesState(state).loading;
 
 export const {
-  setMovies,
-  fetchMovies,
-  fetchErrorMovies,
-  setPeople,
-  fetchPeople,
   setPopularMovies,
   fetchPopularMovies,
   fetchErrorPopularMovies,

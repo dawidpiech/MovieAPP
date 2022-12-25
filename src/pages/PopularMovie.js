@@ -46,7 +46,7 @@ const PopularMoviePage = () => {
         <PopularMovie>
           <h1>Popular movies:</h1>
           <MovieContent movies={popular.results} genres={genres}></MovieContent>
-          <Pagination maxPage={maxPage} page={page} />
+          <Pagination maxPage={maxPage} page={page} type={"movies"} />
         </PopularMovie>
       );
       break;
