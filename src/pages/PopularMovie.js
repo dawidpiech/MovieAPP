@@ -9,9 +9,9 @@ import {
   selectPopularMovies,
 } from "../reducers/MovieSlice";
 import { useSearchParams } from "react-router-dom";
-import MovieContent from "../components/Movie/MovieContent";
+import MovieContent from "../components/ListOfMovie/MovieContent";
 import Loading from "../components/Loading/Loading";
-import Pagination from "../components/Movie/Pagination";
+import Pagination from "../components/Pagination/Pagination";
 
 const PopularMovie = styled.main`
   max-width: 1368px;

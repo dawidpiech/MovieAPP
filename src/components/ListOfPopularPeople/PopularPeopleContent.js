@@ -1,15 +1,9 @@
-import styled from "styled-components";
 import PersonTile from "./PersonTile";
-
-const PopularPeopleWrapper = styled.section`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
-  gap: 24px;
-`;
+import { PeopleWrapper } from "../Wrappers/Wrappers";
 
 const PopularPeopleContent = ({ people }) => {
   return (
-    <PopularPeopleWrapper>
+    <PeopleWrapper>
       {people &&
         people.map((people) => (
           <PersonTile
@@ -19,7 +13,7 @@ const PopularPeopleContent = ({ people }) => {
             profile_path={people.profile_path}
           ></PersonTile>
         ))}
-    </PopularPeopleWrapper>
+    </PeopleWrapper>
   );
 };
 

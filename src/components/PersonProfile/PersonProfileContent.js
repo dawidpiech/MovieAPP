@@ -1,37 +1,14 @@
-import styled from "styled-components";
 import {
   PersonDetailsWrapper,
   Image,
   PersonProfileImageWrapper,
-  Name,
   DateOfBirth,
   PlaceOfBirth,
   Biography,
-  PersonCastWrapper,
-  CastTitle,
-  CastList,
-  PersonMoviesCrewWrapper,
-  CrewTitle,
-  CrewList,
+  PersonProfileDetailsWrapper,
 } from "./PersonProfileComponents";
-import MovieTile from "../../components/Movie/MovieTile";
-
-const PersonProfileDetailsWrapper = styled.section`
-  background-color: ${({ theme }) => theme.colors.white};
-  display: flex;
-  flex-wrap: wrap;
-  flex-flow: row;
-  box-shadow: ${({ theme }) => theme.colors.gray} 0px 4px 12px;
-  margin-top: 50px;
-  padding: 30px;
-  width: 100%;
-  border-radius: 10px;
-
-  @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoints.mobile}) {
-    flex-flow: column;
-  }
-`;
+import MovieTile from "../ListOfPopularMovie/MovieTile";
+import { PeopleWrapper } from "../Wrappers/Wrappers";
 
 const PersonProfileContent = ({
   name,
@@ -55,7 +32,7 @@ const PersonProfileContent = ({
           ></Image>
         </PersonProfileImageWrapper>
         <PersonDetailsWrapper>
-          <Name>{name}</Name>
+          <h1>{name}</h1>
           <DateOfBirth>
             <span>Date of Birth: </span> {dateOfBirth}
           </DateOfBirth>
@@ -65,11 +42,9 @@ const PersonProfileContent = ({
           <Biography>{biography}</Biography>
         </PersonDetailsWrapper>
       </PersonProfileDetailsWrapper>
-      <PersonCastWrapper>
-        <CastTitle>
-          Movies Cast ({castAndCrew.cast && castAndCrew.cast.length}):{" "}
-        </CastTitle>
-        <CastList>
+      <section>
+        <h2>Movies Cast ({castAndCrew.cast && castAndCrew.cast.length}): </h2>
+        <PeopleWrapper>
           {castAndCrew.cast &&
             castAndCrew.cast.map((movie) => (
               <MovieTile
@@ -84,13 +59,11 @@ const PersonProfileContent = ({
                 votes={movie.vote_count}
               ></MovieTile>
             ))}
-        </CastList>
-      </PersonCastWrapper>
-      <PersonMoviesCrewWrapper>
-        <CrewTitle>
-          Movies Crew ({castAndCrew.crew && castAndCrew.crew.length}):{" "}
-        </CrewTitle>
-        <CrewList>
+        </PeopleWrapper>
+      </section>
+      <section>
+        <h2>Movies Crew ({castAndCrew.crew && castAndCrew.crew.length}): </h2>
+        <PeopleWrapper>
           {castAndCrew.crew &&
             castAndCrew.crew.map((movie) => (
               <MovieTile
@@ -105,8 +78,8 @@ const PersonProfileContent = ({
                 votes={movie.vote_count}
               ></MovieTile>
             ))}
-        </CrewList>
-      </PersonMoviesCrewWrapper>
+        </PeopleWrapper>
+      </section>
     </>
   );
 };

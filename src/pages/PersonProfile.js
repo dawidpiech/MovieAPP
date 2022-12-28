@@ -11,7 +11,7 @@ import {
 import { selectGenres, fetchGenres } from "../reducers/MovieSlice";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
-import PersonProfileContent from "../components/People/PersonProfileContent";
+import PersonProfileContent from "../components/PersonProfile/PersonProfileContent";
 
 const PersonProfile = styled.main`
   max-width: 1368px;

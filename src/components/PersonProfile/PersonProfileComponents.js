@@ -1,5 +1,22 @@
 import styled from "styled-components";
 
+export const PersonProfileDetailsWrapper = styled.section`
+  background-color: ${({ theme }) => theme.colors.white};
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  box-shadow: ${({ theme }) => theme.colors.gray} 0px 4px 12px;
+  margin-top: 50px;
+  padding: 30px;
+  width: 100%;
+  border-radius: 10px;
+
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile}) {
+    flex-flow: column;
+  }
+`;
+
 export const PersonProfileImageWrapper = styled.div`
   max-width: 300px;
   width: 100%;
@@ -24,8 +41,6 @@ export const Image = styled.img`
   border-radius: 10px;
 `;
 
-export const Name = styled.h1``;
-
 export const DateOfBirth = styled.p`
   margin: 5px 0;
   span {
@@ -47,22 +62,10 @@ export const Biography = styled.p`
   margin: 0px;
 `;
 
-export const PersonCastWrapper = styled.section``;
-
-export const CastTitle = styled.h2``;
-
 export const CastList = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
   gap: 24px;
 `;
 
-export const PersonMoviesCrewWrapper = styled.section``;
-
 export const CrewTitle = styled.h2``;
-
-export const CrewList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
-  gap: 24px;
-`;

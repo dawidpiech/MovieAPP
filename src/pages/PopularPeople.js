@@ -9,7 +9,7 @@ import {
 import { useSearchParams } from "react-router-dom";
 import PopularPeopleContent from "../components/People/PopularPeopleContent";
 import Loading from "../components/Loading/Loading";
-import Pagination from "../components/Movie/Pagination";
+import Pagination from "../components/Pagination/Pagination";
 
 const PopularPeople = styled.div`
   max-width: 1368px;
