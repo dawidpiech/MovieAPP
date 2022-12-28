@@ -18,7 +18,7 @@ function App() {
           path="/peopleProfile/:id"
           element={<PersonProfilePage />}
         ></Route>
-        <Route path="/peopleProfile/:id" element={<MovieProfile />}></Route>
+        <Route path="/movie/:id" element={<MovieProfile />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </Router>

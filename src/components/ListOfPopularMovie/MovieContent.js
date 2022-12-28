@@ -1,11 +1,5 @@
-import styled from "styled-components";
 import MovieTile from "./MovieTile";
-
-const MovieWrapper = styled.section`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
-  gap: 24px;
-`;
+import { MovieWrapper } from "../Wrappers/Wrappers";
 
 const MovieContent = ({ movies, genres }) => {
   return (

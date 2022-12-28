@@ -17,7 +17,7 @@ import { MainWrapper } from "../components/Wrappers/Wrappers";
 const PersonProfilePage = () => {
   const dispatch = useDispatch();
   const details = useSelector(selectPersonDetails);
-  let castAndCrew = useSelector(selectPersonCastCrew);
+  const castAndCrew = useSelector(selectPersonCastCrew);
   const loading = useSelector(selectLoadingPersonDetails);
   const genres = useSelector(selectGenres);
   const { id } = useParams();
@@ -50,6 +50,7 @@ const PersonProfilePage = () => {
       break;
     default:
       render = <ErrorPage />;
+      break;
   }
 
   return render;

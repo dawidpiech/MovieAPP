@@ -13,6 +13,8 @@ const store = configureStore({
     genres: moviesReducer,
     personDetails: peopleReducer,
     personCastCrew: peopleReducer,
+    movieDetails: moviesReducer,
+    movieCastAndCrew: moviesReducer,
   },
 
   middleware: [sagaMiddleware],

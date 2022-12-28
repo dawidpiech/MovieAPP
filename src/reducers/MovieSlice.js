@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const moviesSlice = createSlice({
   name: "movies",
   initialState: {
-    movies: [],
-    people: [],
+    movieDetails: [],
+    movieCastAndCrew: [],
     popularMovies: [],
     genres: [],
     loading: "",
@@ -26,16 +26,45 @@ const moviesSlice = createSlice({
     setGenres: (state, { payload: genres }) => {
       state.genres = genres;
     },
+    fetchErrorGenres: (state) => {
+      state.loading = "error";
+    },
+    fetchMovieDetails: (state) => {
+      state.loading = "loading";
+    },
+    fetchErrorMovieDetails: (state) => {
+      state.loading = "error";
+    },
+    fetchMovieCastAndCrew: (state) => {
+      state.loading = "error";
+    },
+    setMovieDetails: (state, { payload: details }) => {
+      state.movieDetails = details;
+      state.loading = "success";
+    },
+    setMovieCastAndCrew: (state, { payload: movieCastAndCrew }) => {
+      state.movieCastAndCrew = movieCastAndCrew;
+      state.loading = "success";
+    },
   },
 });
 
 export const selectPopularMoviesState = (state) => state.popularMovies;
 export const selectGenresState = (state) => state.genres;
+export const selectMovieSetailsState = (state) => state.movieDetails;
+export const selectCastAndCrewState = (state) => state.movieCastAndCrew;
 
 export const selectPopularMovies = (state) =>
   selectPopularMoviesState(state).popularMovies;
 export const selectGenres = (state) => selectGenresState(state).genres;
 export const selectLoadingPopularMovies = (state) =>
+  selectPopularMoviesState(state).loading;
+
+export const selectMovieDetails = (state) =>
+  selectMovieSetailsState(state).movieDetails;
+export const selectCastAndCrew = (state) =>
+  selectCastAndCrewState(state).castAndCrew;
+export const selectLoadingMovieDetails = (state) =>
   selectPopularMoviesState(state).loading;
 
 export const {
@@ -44,6 +73,13 @@ export const {
   fetchErrorPopularMovies,
   setGenres,
   fetchGenres,
+  fetchErrorGenres,
+  fetchMovieDetails,
+  fetchErrorMovieDetails,
+  setMovieDetails,
+  fetchMovieCastAndCrew,
+  fetchErrorMovieCastAndCrew,
+  setMovieCastAndCrew,
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
