@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchGenres,
@@ -9,15 +8,11 @@ import {
   selectPopularMovies,
 } from "../reducers/MovieSlice";
 import { useSearchParams } from "react-router-dom";
-import MovieContent from "../components/ListOfMovie/MovieContent";
+import MovieContent from "../components/ListOfPopularMovie/MovieContent";
 import Loading from "../components/Loading/Loading";
 import Pagination from "../components/Pagination/Pagination";
-
-const PopularMovie = styled.main`
-  max-width: 1368px;
-  margin: 0px auto;
-  padding: 0px 10px 20px;
-`;
+import { MainWrapper } from "../components/Wrappers/Wrappers";
+import ErrorPage from "./ErrorPage";
 
 const PopularMoviePage = () => {
   const dispatch = useDispatch();
@@ -43,15 +38,15 @@ const PopularMoviePage = () => {
       break;
     case "success":
       render = (
-        <PopularMovie>
+        <MainWrapper>
           <h1>Popular movies:</h1>
           <MovieContent movies={popular.results} genres={genres}></MovieContent>
           <Pagination maxPage={maxPage} page={page} type={"movies"} />
-        </PopularMovie>
+        </MainWrapper>
       );
       break;
     default:
-      render = <h1>ERROR!!!!</h1>;
+      render = <ErrorPage />;
   }
 
   return render;

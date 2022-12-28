@@ -4,6 +4,7 @@ import PopularPeople from "./pages/PopularPeople";
 import ErrorPage from "./pages/ErrorPage";
 import Navigation from "./components/Navigation/Navigation";
 import PersonProfilePage from "./pages/PersonProfile";
+import MovieProfile from "./pages/MovieProfile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           path="/peopleProfile/:id"
           element={<PersonProfilePage />}
         ></Route>
+        <Route path="/peopleProfile/:id" element={<MovieProfile />}></Route>
         <Route path="*" element={<ErrorPage />}></Route>
       </Routes>
     </Router>

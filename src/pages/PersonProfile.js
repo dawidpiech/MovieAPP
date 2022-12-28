@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPersonDetails,
@@ -12,12 +11,8 @@ import { selectGenres, fetchGenres } from "../reducers/MovieSlice";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading/Loading";
 import PersonProfileContent from "../components/PersonProfile/PersonProfileContent";
-
-const PersonProfile = styled.main`
-  max-width: 1368px;
-  margin: 0px auto;
-  padding: 0px 10px 20px;
-`;
+import ErrorPage from "../pages/ErrorPage";
+import { MainWrapper } from "../components/Wrappers/Wrappers";
 
 const PersonProfilePage = () => {
   const dispatch = useDispatch();
@@ -40,7 +35,7 @@ const PersonProfilePage = () => {
       break;
     case "success":
       render = (
-        <PersonProfile>
+        <MainWrapper>
           <PersonProfileContent
             name={details.name}
             dateOfBirth={details.birthday}
@@ -50,11 +45,11 @@ const PersonProfilePage = () => {
             castAndCrew={castAndCrew}
             genres={genres}
           ></PersonProfileContent>
-        </PersonProfile>
+        </MainWrapper>
       );
       break;
     default:
-      render = <h1>ERROR!!!!</h1>;
+      render = <ErrorPage />;
   }
 
   return render;

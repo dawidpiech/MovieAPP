@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { Image, Title } from "./PeopleTileComponents";
+import noPersonPhoto from "./noPersonPhoto.png";
 
 const PersonTileWrapper = styled.div`
   padding: 16px;
@@ -27,7 +28,7 @@ const PersonTile = ({ id, name, profile_path }) => {
           src={
             profile_path
               ? `${process.env.REACT_APP_API_PHOTO_URL}w500${profile_path}`
-              : "noMoviePhoto"
+              : noPersonPhoto
           }
         />
         <Title>{name}</Title>

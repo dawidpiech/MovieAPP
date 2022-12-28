@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchPopularPeople,
@@ -7,15 +6,11 @@ import {
   selectLoadingPopularPeople,
 } from "../reducers/PeopleSlice";
 import { useSearchParams } from "react-router-dom";
-import PopularPeopleContent from "../components/People/PopularPeopleContent";
+import PopularPeopleContent from "../components/ListOfPopularPeople/PopularPeopleContent";
 import Loading from "../components/Loading/Loading";
 import Pagination from "../components/Pagination/Pagination";
-
-const PopularPeople = styled.div`
-  max-width: 1368px;
-  margin: 0px auto;
-  padding: 0px 10px 20px;
-`;
+import { MainWrapper } from "../components/Wrappers/Wrappers";
+import ErrorPage from "./ErrorPage";
 
 const PopularPeoplePage = () => {
   const dispatch = useDispatch();
@@ -37,15 +32,15 @@ const PopularPeoplePage = () => {
       break;
     case "success":
       render = (
-        <PopularPeople>
+        <MainWrapper>
           <h1>Popular people:</h1>
           <PopularPeopleContent people={popular.results}></PopularPeopleContent>
           <Pagination maxPage={maxPage} page={page} type={"people"} />
-        </PopularPeople>
+        </MainWrapper>
       );
       break;
     default:
-      render = <h1>ERROR!!!!</h1>;
+      render = <ErrorPage />;
   }
 
   return render;
