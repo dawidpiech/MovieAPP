@@ -11,11 +11,11 @@ import {
 } from "./NavigationComponents";
 import { ReactComponent as Logo } from "./logo.svg";
 import { theme } from "../../app/theme";
-import { useLocation } from "react-router-dom";
 import { ReactComponent as SearchIcon } from "./search.svg";
+import { useTypePage } from "../../hooks/useTypeOfPage";
 
 function Navigation() {
-  const location = useLocation();
+  const location = useTypePage();
 
   return (
     <Header>
@@ -37,15 +37,7 @@ function Navigation() {
         </Nav>
         <SearchWrapper>
           <SearchIcon fill="none" stroke={theme.colors.gray}></SearchIcon>
-          <Input
-            placeholder={`Search for ${
-              location.pathname !== "/"
-                ? location.pathname.substring(1)
-                : "movies"
-            }...`}
-            type="text"
-            max="50"
-          />
+          <Input placeholder={`Search for ${location}`} type="text" max="50" />
         </SearchWrapper>
       </Content>
     </Header>

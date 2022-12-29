@@ -40,22 +40,21 @@ const MovieProfile = () => {
     case "success":
       render = (
         <>
-          <MovieBackdrop>
-            <BackdropImage
-              src={
-                details.backdrop_path &&
-                `${process.env.REACT_APP_API_PHOTO_URL}original${details.backdrop_path}`
-              }
-            ></BackdropImage>
-            <div>
-              <h1>{details.title}</h1>
-              <Rating>
-                <Star></Star>
-                <Rate>{details.vote_average + "/10"}</Rate>
-                <Votes>{details.vote_count + " votes"}</Votes>
-              </Rating>
-            </div>
-          </MovieBackdrop>
+          {details.backdrop_path && (
+            <MovieBackdrop>
+              <BackdropImage
+                src={`${process.env.REACT_APP_API_PHOTO_URL}original${details.backdrop_path}`}
+              ></BackdropImage>
+              <div>
+                <h1>{details.title}</h1>
+                <Rating>
+                  <Star></Star>
+                  <Rate>{details.vote_average + "/10"}</Rate>
+                  <Votes>{details.vote_count + " votes"}</Votes>
+                </Rating>
+              </div>
+            </MovieBackdrop>
+          )}
           <MainWrapper>
             <MovieProfileContent
               key={details.id}

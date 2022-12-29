@@ -9,6 +9,7 @@ import {
 } from "./PersonProfileComponents";
 import MovieTile from "../ListOfPopularMovie/MovieTile";
 import { PeopleWrapper } from "../Wrappers/Wrappers";
+import NoPersonPhoto from "../ListOfPopularPeople/noPersonPhoto.png";
 
 const PersonProfileContent = ({
   name,
@@ -27,7 +28,7 @@ const PersonProfileContent = ({
             src={
               profilePath
                 ? `${process.env.REACT_APP_API_PHOTO_URL}w500${profilePath}`
-                : "noMoviePhoto"
+                : NoPersonPhoto
             }
           ></Image>
         </PersonProfileImageWrapper>
@@ -48,7 +49,7 @@ const PersonProfileContent = ({
           {castAndCrew.cast &&
             castAndCrew.cast.map((movie) => (
               <MovieTile
-                key={movie.id}
+                key={"cast_" + movie.id}
                 id={movie.id}
                 poster={movie.poster_path}
                 title={movie.title}
@@ -67,7 +68,7 @@ const PersonProfileContent = ({
           {castAndCrew.crew &&
             castAndCrew.crew.map((movie) => (
               <MovieTile
-                key={movie.id}
+                key={"crew_" + movie.id}
                 id={movie.id}
                 poster={movie.poster_path}
                 title={movie.title}

@@ -18,9 +18,7 @@ import { ReactComponent as Star } from "../ListOfPopularMovie/star.svg";
 import NoMoviePhoto from "../ListOfPopularMovie/noMoviePhoto.png";
 
 const MovieProfileContent = ({
-  id,
   poster,
-  backdrop,
   title,
   release,
   movieGenre,
@@ -36,11 +34,9 @@ const MovieProfileContent = ({
         <MovieProfileImageWrapper>
           <Image
             src={
-              poster ? (
-                `${process.env.REACT_APP_API_PHOTO_URL}w500${poster}`
-              ) : (
-                <NoMoviePhoto />
-              )
+              poster
+                ? `${process.env.REACT_APP_API_PHOTO_URL}w500${poster}`
+                : NoMoviePhoto
             }
           ></Image>
         </MovieProfileImageWrapper>
@@ -73,7 +69,7 @@ const MovieProfileContent = ({
           {castAndCrew.cast &&
             castAndCrew.cast.map((person) => (
               <PersonTile
-                key={person.id}
+                key={"cast_" + person.id}
                 id={person.id}
                 profile_path={person.profile_path}
                 name={person.name}
@@ -88,7 +84,7 @@ const MovieProfileContent = ({
           {castAndCrew.crew &&
             castAndCrew.crew.map((person) => (
               <PersonTile
-                key={person.id}
+                key={"crew_" + person.id}
                 id={person.id}
                 profile_path={person.profile_path}
                 name={person.name}

@@ -22,7 +22,7 @@ const Link = styled(NavLink)`
 
 const PersonTile = ({ id, name, profile_path, character }) => {
   return (
-    <PersonTileWrapper key={id}>
+    <PersonTileWrapper key={"person" + id}>
       <Link to={"/peopleProfile/" + id}>
         <Image
           src={

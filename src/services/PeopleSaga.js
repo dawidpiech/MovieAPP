@@ -42,7 +42,17 @@ function* fetchPersonCastCrewHandler({ payload: id }) {
     const personCastCrew = yield axios.get(
       `${APIUrl}person/${id}/movie_credits?api_key=${APIKey}`
     );
-    yield put(setPersonCastCrew(personCastCrew.data));
+
+    const uniq = {
+      id: personCastCrew.data.id,
+      cast: personCastCrew.data.cast.filter(
+        (v, i, a) => a.findIndex((v2) => v2.id === v.id) === i
+      ),
+      crew: personCastCrew.data.crew.filter(
+        (v, i, a) => a.findIndex((v2) => v2.id === v.id) === i
+      ),
+    };
+    yield put(setPersonCastCrew(uniq));
   } catch (error) {
     yield put(fetchErrorPersonCastCrew("error"));
   }

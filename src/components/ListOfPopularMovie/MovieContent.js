@@ -7,7 +7,7 @@ const MovieContent = ({ movies, genres }) => {
       {movies &&
         movies.map((movie) => (
           <MovieTile
-            key={movie.id}
+            key={"movie_" + movie.id}
             id={movie.id}
             poster={movie.poster_path}
             title={movie.title}

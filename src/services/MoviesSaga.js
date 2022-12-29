@@ -56,7 +56,16 @@ function* fetchMovieCastAndCrewHandler(id) {
     const movieCastAndCrew = yield axios.get(
       `${APIUrl}movie/${id.payload}/credits?api_key=${APIKey}&language=en-US`
     );
-    yield put(setMovieCastAndCrew(movieCastAndCrew.data));
+    const uniq = {
+      id: movieCastAndCrew.data.id,
+      cast: movieCastAndCrew.data.cast.filter(
+        (v, i, a) => a.findIndex((v2) => v2.id === v.id) === i
+      ),
+      crew: movieCastAndCrew.data.crew.filter(
+        (v, i, a) => a.findIndex((v2) => v2.id === v.id) === i
+      ),
+    };
+    yield put(setMovieCastAndCrew(uniq));
   } catch {
     yield put(fetchMovieCastAndCrew("error"));
   }
