@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { Image, Title } from "./PeopleTileComponents";
+import { Image, Title, Character } from "./PeopleTileComponents";
 import noPersonPhoto from "./noPersonPhoto.png";
 
 const PersonTileWrapper = styled.div`
@@ -20,7 +20,7 @@ const Link = styled(NavLink)`
   color: ${({ theme }) => theme.colors.black};
 `;
 
-const PersonTile = ({ id, name, profile_path }) => {
+const PersonTile = ({ id, name, profile_path, character }) => {
   return (
     <PersonTileWrapper key={id}>
       <Link to={"/peopleProfile/" + id}>
@@ -32,6 +32,7 @@ const PersonTile = ({ id, name, profile_path }) => {
           }
         />
         <Title>{name}</Title>
+        {character ? <Character>{character}</Character> : ""}
       </Link>
     </PersonTileWrapper>
   );

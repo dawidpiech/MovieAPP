@@ -13,3 +13,10 @@ export const Title = styled.p`
   font-size: 22px;
   line-height: 130%;
 `;
+
+export const Character = styled.p`
+  color: ${({ theme }) => theme.colors.gray};
+  margin: 5px 0px 0px;
+  text-align: center;
+  font-size: 18px;
+`;

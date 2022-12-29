@@ -63,7 +63,7 @@ export const selectLoadingPopularMovies = (state) =>
 export const selectMovieDetails = (state) =>
   selectMovieSetailsState(state).movieDetails;
 export const selectCastAndCrew = (state) =>
-  selectCastAndCrewState(state).castAndCrew;
+  selectCastAndCrewState(state).movieCastAndCrew;
 export const selectLoadingMovieDetails = (state) =>
   selectPopularMoviesState(state).loading;
 

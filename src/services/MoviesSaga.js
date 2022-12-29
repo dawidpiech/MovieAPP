@@ -44,11 +44,14 @@ function* fetchMovieDetailsHandler(id) {
     const movieDetails = yield axios.get(
       `${APIUrl}movie/${id.payload}?api_key=${APIKey}`
     );
+    yield fetchMovieCastAndCrewHandler(id);
     yield put(setMovieDetails(movieDetails.data));
   } catch {
     yield put(fetchErrorMovieDetails("error"));
   }
+}
 
+function* fetchMovieCastAndCrewHandler(id) {
   try {
     const movieCastAndCrew = yield axios.get(
       `${APIUrl}movie/${id.payload}/credits?api_key=${APIKey}&language=en-US`

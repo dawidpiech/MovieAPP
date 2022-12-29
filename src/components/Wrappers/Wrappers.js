@@ -4,6 +4,11 @@ export const PeopleWrapper = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 24px;
+
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile}) {
+    grid-template-columns: calc(50% - 12px) calc(50% - 12px);
+  }
 `;
 
 export const MovieWrapper = styled.section`
