@@ -13,9 +13,19 @@ import { ReactComponent as Logo } from "./logo.svg";
 import { theme } from "../../app/theme";
 import { ReactComponent as SearchIcon } from "./search.svg";
 import { useTypePage } from "../../hooks/useTypeOfPage";
+import { useNavigate } from "react-router";
 
 function Navigation() {
   const location = useTypePage();
+  const navigate = useNavigate();
+  const type = useTypePage();
+
+  const ChangeURL = (e) => {
+    navigate({
+      pathname: "/search",
+      search: `?type=${type}&page=1&query=${e.target.value}`,
+    });
+  };
 
   return (
     <Header>
@@ -37,7 +47,12 @@ function Navigation() {
         </Nav>
         <SearchWrapper>
           <SearchIcon fill="none" stroke={theme.colors.gray}></SearchIcon>
-          <Input placeholder={`Search for ${location}`} type="text" max="50" />
+          <Input
+            placeholder={`Search for ${location}`}
+            type="text"
+            max="50"
+            onChange={ChangeURL}
+          />
         </SearchWrapper>
       </Content>
     </Header>

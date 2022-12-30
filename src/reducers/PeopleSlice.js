@@ -49,7 +49,7 @@ const selectPersonCastCrewState = (state) => state.personCastCrew;
 export const selectPopularPeople = (state) =>
   selectPopularPeopleState(state).popularPeople;
 export const selectPersonDetails = (state) =>
-  selectPersonDetailsState(state).personDetails;
+  selectPopularPeopleState(state).personDetails;
 export const selectPersonCastCrew = (state) =>
   selectPersonCastCrewState(state).personCastCrew;
 

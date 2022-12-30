@@ -35,10 +35,12 @@ const PersonProfileContent = ({
         <PersonDetailsWrapper>
           <h1>{name}</h1>
           <DateOfBirth>
-            <span>Date of Birth: </span> {dateOfBirth}
+            <span>Date of Birth: </span>
+            {dateOfBirth ? dateOfBirth : "no date of birth information"}
           </DateOfBirth>
           <PlaceOfBirth>
-            <span>Place of birth: </span> {placeOfBirth}
+            <span>Place of birth: </span>
+            {placeOfBirth ? placeOfBirth : "no place of birth information"}
           </PlaceOfBirth>
           <Biography>{biography}</Biography>
         </PersonDetailsWrapper>

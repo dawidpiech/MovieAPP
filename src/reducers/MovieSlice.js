@@ -49,10 +49,10 @@ const moviesSlice = createSlice({
   },
 });
 
-export const selectPopularMoviesState = (state) => state.popularMovies;
-export const selectGenresState = (state) => state.genres;
-export const selectMovieSetailsState = (state) => state.movieDetails;
-export const selectCastAndCrewState = (state) => state.movieCastAndCrew;
+const selectPopularMoviesState = (state) => state.popularMovies;
+const selectGenresState = (state) => state.genres;
+const selectMovieSetailsState = (state) => state.movieDetails;
+const selectCastAndCrewState = (state) => state.movieCastAndCrew;
 
 export const selectPopularMovies = (state) =>
   selectPopularMoviesState(state).popularMovies;
