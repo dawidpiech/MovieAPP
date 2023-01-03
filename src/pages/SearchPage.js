@@ -20,22 +20,23 @@ const SearchPage = () => {
   const type = params.get("type");
   const page = parseInt(params.get("page"));
   const query = params.get("query");
-  const searchParams = {
-    type: type,
-    page: page,
-    query: query,
-  };
   const loading = useSelector(selectLoadingSearch);
   const results = useSelector(selectSearchResults);
   const genres = useSelector(selectGenres);
   const dispatch = useDispatch();
   let render = "";
   useEffect(() => {
+    const searchParams = {
+      type: type,
+      page: page,
+      query: query,
+    };
+
     if (query !== "") {
       dispatch(fetchSearch(searchParams));
       dispatch(fetchGenres());
     }
-  }, [type, page, query, dispatch]);
+  }, [query, page, type, dispatch]);
 
   switch (loading) {
     case "success":
