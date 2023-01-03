@@ -50,8 +50,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 To run app you should create .env file in main folder with below parameters:
-REACT_APP_API_KEY = (your_API_key)
-REACT_APP_API_URL = https://api.themoviedb.org/3/
+REACT_APP_API_KEY = (your_API_key)\
+REACT_APP_API_URL = https://api.themoviedb.org/3/\
 REACT_APP_API_PHOTO_URL = http://image.tmdb.org/t/p/
 
 
