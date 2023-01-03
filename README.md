@@ -1,13 +1,13 @@
 # Movies Browser 🎬
 
 Movie Browser is an application where you can browse the films, actors and crew working on a film.
-In addition, the app has a search engine where you can find your favourite film and actor.
+In addition, the app has a search engine where you can find your favourite film and actor. Demo Link
 
 ![Movie-browser photo](https://raw.githubusercontent.com/dawidpiech/MovieAPP/master/readme/MovieApp.png)
 
 ## Demo link
 
-[Demo Link] https://movieapp.piech.it/
+[Demo link](https://movieapp.piech.it/)
 
 ## General Informations
 
