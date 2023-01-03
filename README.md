@@ -7,7 +7,7 @@ In addition, the app has a search engine where you can find your favourite film 
 
 ## Demo link
 
-[Demo link](https://movieapp.piech.it/)
+[Demo link](https://movieapp.piech.it/){:target="\_blank" rel="noopener"}
 
 ## General Informations
 
