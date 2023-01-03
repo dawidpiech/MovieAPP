@@ -47,7 +47,7 @@ const MovieProfileContent = ({
             {production && production.map((country) => country.name + ", ")}
           </Production>
           <DateOfRelease>
-            <span>Release date: </span> {release}
+            <span>Release date: </span> {release ? release : "No release date"}
           </DateOfRelease>
           <ListOfGenres>
             {movieGenre &&

@@ -110,6 +110,7 @@ export const MovieProfileDetailsWrapper = styled.section`
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mobile}) {
     flex-flow: column;
+    padding: 5px;
   }
 `;
 
@@ -130,6 +131,12 @@ export const MovieDetailsWrapper = styled.div`
   width: 100%;
   padding: 20px;
   color: ${({ theme }) => theme.colors.black};
+
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile}) {
+    min-width: 250px;
+    padding: 5px;
+  }
 `;
 
 export const Image = styled.img`

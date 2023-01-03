@@ -19,6 +19,11 @@ const MovieTileWrapper = styled.div`
   box-shadow: ${({ theme }) => theme.colors.gray} 0px 4px 12px;
   border-radius: 10px;
   transition: transform 0.5s ease 0s, box-shadow 0.5s ease 0s;
+
+  &:hover {
+    transform: translate(0, -15px);
+    box-shadow: ${({ theme }) => theme.colors.black} 0px 6px 18px;
+  }
 `;
 
 const Link = styled(NavLink)`
@@ -54,7 +59,9 @@ const MovieTile = ({
         />
         <Title>
           {title}
-          <YearOfProduction>{date.getFullYear()}</YearOfProduction>
+          <YearOfProduction>
+            {release ? date.getFullYear() : "No year of production"}
+          </YearOfProduction>
         </Title>
         <ListOfGenres>
           {genres.map(

@@ -12,6 +12,7 @@ import MovieContent from "../components/ListOfPopularMovie/MovieContent";
 import Pagination from "../components/Pagination/Pagination";
 import { selectGenres, fetchGenres } from "../reducers/MovieSlice";
 import ErrorPage from "./ErrorPage";
+import NoResultsPage from "./NoResultsPage";
 import PopularPeopleContent from "../components/ListOfPopularPeople/PopularPeopleContent";
 
 const SearchPage = () => {
@@ -38,9 +39,10 @@ const SearchPage = () => {
 
   switch (loading) {
     case "success":
-      results.total_results !== 0 ? (
-        type === "movie" ? (
-          (render = (
+      results.total_results === 0
+        ? (render = <NoResultsPage query={query} />)
+        : type === "movie"
+        ? (render = (
             <MainWrapper>
               <h1>
                 Search results for "{query}" ({results.total_results}):
@@ -58,8 +60,7 @@ const SearchPage = () => {
               />
             </MainWrapper>
           ))
-        ) : (
-          (render = (
+        : (render = (
             <MainWrapper>
               <h1>
                 Search results for "{query}" ({results.total_results}):
@@ -75,11 +76,7 @@ const SearchPage = () => {
                 query={query}
               />
             </MainWrapper>
-          ))
-        )
-      ) : (
-        <ErrorPage></ErrorPage>
-      );
+          ));
       break;
     case "error":
       render = <ErrorPage />;

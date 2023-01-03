@@ -8,7 +8,7 @@ import {
   PersonProfileDetailsWrapper,
 } from "./PersonProfileComponents";
 import MovieTile from "../ListOfPopularMovie/MovieTile";
-import { PeopleWrapper } from "../Wrappers/Wrappers";
+import { MovieWrapper } from "../Wrappers/Wrappers";
 import NoPersonPhoto from "../ListOfPopularPeople/noPersonPhoto.png";
 
 const PersonProfileContent = ({
@@ -47,7 +47,7 @@ const PersonProfileContent = ({
       </PersonProfileDetailsWrapper>
       <section>
         <h2>Movies Cast ({castAndCrew.cast && castAndCrew.cast.length}): </h2>
-        <PeopleWrapper>
+        <MovieWrapper>
           {castAndCrew.cast &&
             castAndCrew.cast.map((movie) => (
               <MovieTile
@@ -62,11 +62,11 @@ const PersonProfileContent = ({
                 votes={movie.vote_count}
               ></MovieTile>
             ))}
-        </PeopleWrapper>
+        </MovieWrapper>
       </section>
       <section>
         <h2>Movies Crew ({castAndCrew.crew && castAndCrew.crew.length}): </h2>
-        <PeopleWrapper>
+        <MovieWrapper>
           {castAndCrew.crew &&
             castAndCrew.crew.map((movie) => (
               <MovieTile
@@ -81,7 +81,7 @@ const PersonProfileContent = ({
                 votes={movie.vote_count}
               ></MovieTile>
             ))}
-        </PeopleWrapper>
+        </MovieWrapper>
       </section>
     </>
   );

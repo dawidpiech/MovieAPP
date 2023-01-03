@@ -13,7 +13,7 @@ export const PeopleWrapper = styled.section`
 
 export const MovieWrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(292px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
 `;
 

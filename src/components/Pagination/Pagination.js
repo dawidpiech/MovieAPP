@@ -14,10 +14,10 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   padding: 5px 24px;
-  margin: 0px 6px;
+  margin: -2px 8px 0 8px;
   border: none;
   border-radius: 5px;
-  color: ${({ theme }) => theme.colors.black};
+  font-size: 18px;
   text-decoration: none;
   transition: background 0.4s ease 0s;
   background: ${(props) =>
@@ -25,25 +25,46 @@ const Button = styled.button`
       ? ({ theme }) => theme.colors.lightGray
       : ({ theme }) => theme.colors.blue};
   cursor: pointer;
+  color: ${(props) =>
+    props.disabled
+      ? ({ theme }) => theme.colors.black
+      : ({ theme }) => theme.colors.darkBlue};
+
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile}) {
+    padding: 5px 12px;
+    margin: -2px 4px 0 4px;
+  }
 
   span {
-    color: blue;
-    font-size: 24px;
-    margin: -2px 8px 0 8px;
-    color: ${(props) =>
-      props.disabled
-        ? ({ theme }) => theme.colors.black
-        : ({ theme }) => theme.colors.darkBlue};
+    color: ${({ theme }) => theme.colors.black};
+    margin: 0px 6px;
+
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.mobile}) {
+      display: none;
+    }
   }
 `;
 
 const Page = styled.p`
   margin: 0 20px;
   color: ${({ theme }) => theme.colors.gray};
+  text-align: center;
+
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile}) {
+    margin: 0 10px;
+  }
   span {
     font-weight: 600;
     margin: 0 10px;
     color: ${({ theme }) => theme.colors.black};
+
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.mobile}) {
+      margin: 0 5px;
+    }
   }
 `;
 
@@ -71,7 +92,7 @@ const Pagination = ({ maxPage, page, type, typeOfSearch, query }) => {
     else
       switch (e) {
         case "first":
-          navigate({ pathname: `?type=${typeOfSearch}&page=1&query=${query}` });
+          navigate(`?type=${typeOfSearch}&page=1&query=${query}`);
           break;
         case "previous":
           navigate(`?type=${typeOfSearch}&page=${--page}&query=${query}`);
@@ -92,13 +113,13 @@ const Pagination = ({ maxPage, page, type, typeOfSearch, query }) => {
         onClick={() => changePage("first")}
         disabled={page <= 1 ? true : false}
       >
-        <span> « </span> First
+        « <span>First</span>
       </Button>
       <Button
         onClick={() => changePage("previous")}
         disabled={page <= 1 ? true : false}
       >
-        <span> « </span> Previous
+        « <span>Previous</span>
       </Button>
       <Page>
         Page <span>{page}</span> of <span>{maxPage}</span>
@@ -107,13 +128,13 @@ const Pagination = ({ maxPage, page, type, typeOfSearch, query }) => {
         onClick={() => changePage("next")}
         disabled={page >= maxPage ? true : false}
       >
-        Next <span> » </span>
+        <span>Next</span> »
       </Button>
       <Button
         onClick={() => changePage("last")}
         disabled={page >= maxPage ? true : false}
       >
-        Last <span> » </span>
+        <span>Last</span> »
       </Button>
     </PaginationWrapper>
   );

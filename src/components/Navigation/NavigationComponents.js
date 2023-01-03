@@ -24,6 +24,11 @@ export const Content = styled.div`
 
 export const Nav = styled.nav`
   display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 100%;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -38,7 +43,7 @@ export const Title = styled.span`
   font-weight: 500;
   letter-spacing: -1.5px;
   color: ${({ theme }) => theme.colors.white};
-  @media (max-width: 570px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 13px;
     letter-spacing: 0.5px;
   }
@@ -48,8 +53,12 @@ export const Menu = styled.div`
   margin-left: 80px;
   display: flex;
 
-  @media (max-width: 1080px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     margin-left: 20px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-left: 0;
   }
 `;
 
@@ -67,7 +76,7 @@ export const LinkLogo = styled(NavLink)`
     width: 40px;
     height: 40px;
 
-    @media (max-width: 570px) {
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
       width: 17px;
     }
   }
@@ -80,6 +89,10 @@ export const Link = styled(LinkLogo)`
     border: 1px solid ${({ theme }) => theme.colors.white};
     border-radius: 24px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 6px 12px;
+  }
 `;
 
 export const SearchWrapper = styled.div`
@@ -88,11 +101,11 @@ export const SearchWrapper = styled.div`
   padding: 15px 26px;
   background: ${({ theme }) => theme.colors.white};
   border-radius: 32px;
-  @media (max-width: 900px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 90%;
     margin-top: 13px;
   }
-  @media (max-width: 570px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 8px 12px;
   }
 
@@ -118,13 +131,12 @@ export const Input = styled.input`
     color: ${({ theme }) => theme.colors.gray};
   }
 
-  @media (max-width: 1080px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     width: 240px;
   }
-  @media (max-width: 900px) {
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;
-  }
-  @media (max-width: 570px) {
     font-size: 13px;
   }
 `;
