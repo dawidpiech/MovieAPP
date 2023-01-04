@@ -72,7 +72,7 @@ const Pagination = ({ maxPage, page, type, typeOfSearch, query }) => {
   const navigate = useNavigate();
 
   const changePage = (e) => {
-    if (type === "person" || type === "movie")
+    if (type !== "search")
       switch (e) {
         case "first":
           navigate(`/${type}?page=1`);

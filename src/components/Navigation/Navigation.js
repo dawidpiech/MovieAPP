@@ -14,9 +14,10 @@ import { theme } from "../../app/theme";
 import { ReactComponent as SearchIcon } from "./search.svg";
 import { useTypePage } from "../../hooks/useTypeOfPage";
 import { useNavigate } from "react-router";
+import { useLocation } from 'react-router-dom';
 
 function Navigation() {
-  const location = useTypePage();
+  const location = useLocation();
   const navigate = useNavigate();
   const type = useTypePage();
 
@@ -38,7 +39,7 @@ function Navigation() {
           <Menu>
             <Link
               to="/movies"
-              className={location.pathname === "/" ? "active" : ""}
+              className={location.pathname === "/" || location.pathname === "movies" ? "active" : ""}
             >
               MOVIES
             </Link>
@@ -48,7 +49,8 @@ function Navigation() {
         <SearchWrapper>
           <SearchIcon fill="none" stroke={theme.colors.gray}></SearchIcon>
           <Input
-            placeholder={`Search for ${location}`}
+            value={location.pathname !== "/search" ? "" : null}
+            placeholder={`Search for ${type}`}
             type="text"
             max="50"
             onChange={ChangeURL}
